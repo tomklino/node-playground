@@ -1,10 +1,14 @@
-function *iterateOnNumbers() {
-  yield 1;
-  yield 2;
-  yield 3;
+
+function makeGenerator(max) {
+  return function *iterateOnNumbers() {
+    for(i=1; i<=max; i++) {
+      yield i;
+    }
+  }
 }
 
-var iterator = iterateOnNumbers();
+var generator = makeGenerator(3);
+var iterator = generator();
 
 var keepGoing = true;
 do {

@@ -7,13 +7,19 @@ function makeGenerator(max) {
   }
 }
 
-var generator = makeGenerator(3);
-var iterator = generator();
+var genToThree = makeGenerator(3);
+var genToFive = makeGenerator(5);
 
-var keepGoing = true;
-do {
-  var iteration = iterator.next();
-  keepGoing = !iteration.done;
-  console.log((keepGoing ? iteration.value : "bye!"));
-} while(keepGoing)
+generatorEngine(genToThree);
+generatorEngine(genToFive);
+
+function generatorEngine(generator) {
+  var iterator = generator();
+  var keepGoing = true;
+  do {
+    var iteration = iterator.next();
+    keepGoing = !iteration.done;
+    console.log((keepGoing ? iteration.value : "bye!"));
+  } while(keepGoing)
+}
 

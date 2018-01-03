@@ -1,6 +1,16 @@
 module.exports = {
-  makeFibGenerator,
   makeGenerator
+}
+
+function makeGenerator({type = "natural", max = 10}) {
+  if (type === "natural") {
+    return makeNaturalGenerator(max);
+  } else
+  if (type === "fibanacchi") {
+    return makeFibGenerator(max)
+  } else {
+    return new Error(`type ${type} not found`);
+  }
 }
 
 function makeFibGenerator(max) {
@@ -15,7 +25,7 @@ function makeFibGenerator(max) {
   }
 }
 
-function makeGenerator(max) {
+function makeNaturalGenerator(max) {
   return function *iterateOnNumbers() {
     for(i=1; i<=max; i++) {
       yield i;

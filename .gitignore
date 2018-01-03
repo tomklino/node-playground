@@ -1,6 +1,6 @@
 # linux swp files
-
-*.swp
+.*.swo
+.*.swp
 
 # key pointer
 .git_key_pointer
